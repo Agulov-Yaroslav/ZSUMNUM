@@ -1,0 +1,27 @@
+*&---------------------------------------------------------------------*
+*& Report ZSUMNUM
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZSUMNUM.
+
+DATA: lv_sum TYPE i.
+
+
+
+
+SELECTION-SCREEN BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-001.
+
+  PARAMETERS: lv_firn TYPE i,
+            lv_secn TYPE i.
+SELECTION-SCREEN END OF BLOCK B1.
+
+IF lv_firn < lv_secn.
+  WHILE lv_firn < lv_secn.
+  lv_sum = lv_sum + lv_firn.
+  lv_firn = lv_firn + 1.
+  ENDWHILE.
+  WRITE: 'Sum of numbers in the given range:', lv_sum.
+ELSE.
+  WRITE: 'Invalid input. The second number must be greater than the first.'.
+ENDIF.
